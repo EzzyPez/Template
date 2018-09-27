@@ -6,7 +6,7 @@ include("auth.php");
 <html>
 <head>
 <meta charset="utf-8">
-<title>I like ASS</title>
+<title>Welcome</title>
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
