@@ -6,7 +6,11 @@ include("auth.php");
 <html>
 <head>
 <meta charset="utf-8">
+<<<<<<< HEAD
 <title>Testing git stuff 2 </title>
+=======
+<title>Welcome</title>
+>>>>>>> parent of 870a59c... Second commit
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
