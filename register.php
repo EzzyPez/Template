@@ -30,8 +30,9 @@ if (isset($_REQUEST['username'])){
     }else if(mysqli_num_rows($emailCheckResult) > 0){
 		echo "Email allready in use.";
 	}else{
+	$passhash = password_hash($password, PASSWORD_DEFAULT);
 	$query = "INSERT into 'user_data' (name, surname, email, phonenum, username, password)
-	VALUES ('$name', '$surname', '$email', '$phonenum', '$username', '".md5($password)."')";
+	VALUES ('$name', '$surname', '$email', '$phonenum', '$username', '$passhash')";
         $result = mysqli_query($con,$query);
         if($result){
 			echo "RESULT EXECUTED!";

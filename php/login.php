@@ -11,10 +11,17 @@ if (isset($_POST['username'])){
 	$password = mysqli_real_escape_string($con,$password);	
     }
 
-    $passhash = "SELECT password FROM 'user_data' WHERE username = '$username';";
-    $hash = mysqli_query($con, $passhash);
-    if(password_verify($password, $passhash)){
-	    echo "ASS";
+    $pass_query = "SELECT password FROM `user_data` WHERE username = '$username';";
+    $hash_query = mysqli_query($con, $pass_query);
+    $result = "";
+
+    if(mysqli_num_rows($hash_query) > 0){
+	    while($row = mysqli_fetch_assoc($hash_query)){
+		$result = $result . $row["password"];
+	    }
+    }
+
+    if(password_verify($password, $result)){
     	//Checking is user existing in the database or not
    	$query = "SELECT * FROM `user_data` WHERE username='$username'AND password='".md5($password)."'";
 	$result = mysqli_query($con,$query) or die(mysql_error());
@@ -25,8 +32,8 @@ if (isset($_POST['username'])){
 	    header("Location: ../index.php");
 	} 
 	}else{
-	echo "<div class='form'>
-	<h3>Username/password is incorrect.</h3>
-	<br/>Click here to <a href='login.html'>Login</a></div>";
+		echo "<div class='form'>
+		<h3>Username/password is incorrect.</h3>
+		<br/>Click here to <a href='../login.html'>Login</a></div>";
 	}
 ?>
