@@ -24,7 +24,9 @@ if (isset($_POST['username'])){
 		}
 		$_SESSION['username'] = $username;
 		//============================================================================
-		header("Location: ../dashboard.php");  
+		$asd = dirname(__FILE__)."\\dashboard.html";
+		header("Location: ".$asd);  
+		die();
 		//============================================================================    		
 	}else{
 		echo "<div class='form'>
