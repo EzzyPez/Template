@@ -24,9 +24,12 @@ if (isset($_POST['username'])){
 		}
 		$_SESSION['username'] = $username;
 		//============================================================================
-		$asd = dirname(__FILE__)."\\dashboard.html";
-		header("Location: ".$asd);  
-		die();
+		//$dashPath = dirname(__FILE__)."\\dashboard.html";
+		//header("Location: ".$dashPath);  
+
+		header("Location: http://localhost/template/php/dashboard.html");
+		exit();	
+		
 		//============================================================================    		
 	}else{
 		echo "<div class='form'>
